@@ -7,6 +7,6 @@ module.exports = {
 function index(req, res, next) {
   Game.find({}, function(err, games) {
     if(err) next(err);
-    res.json({games: games, message: "You have succesfully retrieved all the games"})
+    res.json(games)
   }).select('-__v');
 }
