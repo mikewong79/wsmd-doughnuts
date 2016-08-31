@@ -9,7 +9,6 @@ var mongoose = require('./config/database')
 var routes = require('./config/routes');
 // Bring in dotenv module and load environment variables.
 require('dotenv').config()
-Mike was here working on branch
 var app = express();
 
 // view engine setup
