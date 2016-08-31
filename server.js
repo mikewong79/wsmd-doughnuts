@@ -4,11 +4,12 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
-var mongoose = require('./config/database')
+
 
 var routes = require('./config/routes');
 // Bring in dotenv module and load environment variables.
 require('dotenv').config()
+var mongoose = require('./config/database')
 var app = express();
 
 // view engine setup
