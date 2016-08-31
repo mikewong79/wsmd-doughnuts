@@ -13,5 +13,6 @@ router.get('/', function(req, res, next) {
 router.route('/api/games')
   // GET all games
   .get(gamesController.index)
+  .post(gamesController.create);
 
 module.exports = router;
