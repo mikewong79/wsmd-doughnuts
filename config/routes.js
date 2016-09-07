@@ -15,4 +15,9 @@ router.route('/api/games')
   .get(gamesController.index)
   .post(gamesController.create);
 
+router.route('/api/games/:id')
+  .get(gamesController.show)
+  .patch(gamesController.update)
+  .delete(gamesController.destroy);
+
 module.exports = router;
