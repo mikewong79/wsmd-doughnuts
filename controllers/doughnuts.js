@@ -18,7 +18,7 @@ function index(req, res, next) {
 }
 
 function create(req, res, next) {
-  doughnuts.push(res.body)
+  doughnuts.push(req.body)
   res.json(req.body)
 }
 
