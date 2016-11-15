@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var gamesController = require('../controllers/games');
-var doughnutsController = require('../controllers/games');
+var doughnutsController = require('../controllers/doughnuts');
 var usersCtrl = require('../controllers/users');
 
 // Require token authentication.
