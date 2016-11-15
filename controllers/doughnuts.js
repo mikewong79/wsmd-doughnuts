@@ -1,4 +1,9 @@
-var Doughnut = require('../models/Doughnut');
+doughnuts = [
+  {id: 1, flavor: "yellow" , style: "cake"},
+  {id: 2, flavor: "chocolate" , style: "French cruller"},
+  {id: 3, flavor: "pumpkin" , style: "cake"},
+  {id: 4, flavor: "vanilla iced" , style: "old fashioned"}
+]
 
 module.exports = {
   index: index,
@@ -9,53 +14,35 @@ module.exports = {
 }
 
 function index(req, res, next) {
-  Doughnut.find({}, function(err, doughnuts) {
-    if(err) next(err);
-    res.json(doughnuts)
-  }).select('-__v');
+  res.json(doughnuts)
 }
 
 function create(req, res, next) {
-  var doughnut = new Doughnut(req.body);
-
-  doughnut.save(function(err, doughnut) {
-    if(err) next(err);
-
-    res.json(doughnut)
-  });
+  doughnuts.push(res.body)
+  res.json(req.body)
 }
 
 function show(req, res, next) {
-  var id = req.params.id;
-  Doughnut.findById(id, function(err, doughnut) {
-    if(err) next(err);
-
-    res.json(doughnut);
-  }).select('-__v');
+  doughnut = doughnuts.filter(function(element){ return element["id"] == req.params.id })[0]
+  res.json(doughnut)
 }
 
 function update(req, res, next) {
-  var id = req.params.id;
-
-  Doughnut.findById(id, function(err, doughnut) {
-    if(err) next(err);
-
-    doughnut.flavor = req.body.flavor;
-    doughnut.style = req.body.style;
-
-    doughnut.save(function(err, updatedDoughnut) {
-      if(err) next(err);
-
-      res.json(updatedDoughnut);
-    });
-  });
+  for(i in doughnuts){
+    if(doughnuts[i]["id"] == req.params.id){
+      doughnuts[i] = req.body
+    }
+  }
+  res.format({
+    json: function(){ res.json(req.body) }
+  })
 }
 
 function destroy(req, res, next) {
-  var id = req.params.id;
-  Doughnut.remove({_id:id}, function(err) {
-    if(err) next(err);
-
-    res.json({message: 'Doughnut successfully deleted'})
-  });
+  for(i in doughnuts){
+    if(doughnuts[i]["id"] == req.params.id){
+      delete doughnuts[i]
+    }
+  }
+  res.json({message : 'deleted' })
 }
