@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var gamesController = require('../controllers/games');
+var doughnutsController = require('../controllers/games');
 var usersCtrl = require('../controllers/users');
 
 // Require token authentication.
@@ -24,6 +25,15 @@ router.route('/api/games/:id')
   .patch(gamesController.update)
   .delete(gamesController.destroy);
 
+router.route('/api/doughnuts')
+  .get(doughnutsController.index)
+  .post(doughnutsController.create);
+
+router.route('/api/doughnuts/:id')
+  .get(doughnutsController.show)
+  .patch(doughnutsController.update)
+  .delete(doughnutsController.destroy);
+
 router.route('/api/users')
   .post(usersCtrl.create);
 
@@ -32,5 +42,6 @@ router.route('/api/users/me')
 
 router.route('/api/token')
   .post(token.create);
+
 
 module.exports = router;
