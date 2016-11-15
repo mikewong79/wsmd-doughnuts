@@ -27,6 +27,7 @@ function create(req, res, next) {
 
 function show(req, res, next) {
   var id = req.params.id;
+  console.log(id);
   Doughnut.findById(id, function(err, doughnut) {
     if(err) next(err);
 
