@@ -1,8 +1,8 @@
 doughnuts = [
-  {id: 1, flavor: "yellow" , style: "cake"},
-  {id: 2, flavor: "chocolate" , style: "French cruller"},
-  {id: 3, flavor: "pumpkin" , style: "cake"},
-  {id: 4, flavor: "vanilla iced" , style: "old fashioned"}
+  {id: 1, flavor: "Yellow" , style: "Cake"},
+  {id: 2, flavor: "Chocolate" , style: "French Cruller"},
+  {id: 3, flavor: "Pumpkin" , style: "Yeast"},
+  {id: 4, flavor: "Vanilla Iced" , style: "Old Fashioned"}
 ]
 
 module.exports = {
