@@ -44,7 +44,6 @@ function update(req, res, next) {
     doughnut.flavor = req.body.flavor;
     doughnut.style = req.body.style;
 
-
     doughnut.save(function(err, updatedDoughnut) {
       if(err) next(err);
 
