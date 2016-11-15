@@ -1,4 +1,4 @@
-doughnuts = [
+var doughnuts = [
   {id: 1, flavor: "Yellow" , style: "Cake"},
   {id: 2, flavor: "Chocolate" , style: "French Cruller"},
   {id: 3, flavor: "Pumpkin" , style: "Yeast"},
