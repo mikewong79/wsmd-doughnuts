@@ -23,7 +23,7 @@ function create(req, res, next) {
 }
 
 function show(req, res, next) {
-  doughnut = doughnuts.filter(function(element){ return element["id"] == req.params.id })[0]
+  var doughnut = doughnuts.filter(function(element){ return element["id"] == req.params.id })[0]
   res.json(doughnut)
 }
 
